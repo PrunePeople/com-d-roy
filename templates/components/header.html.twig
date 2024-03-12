@@ -1,0 +1,48 @@
+{% set encartText = "Inconnu" %}
+{% set pathImg = '/uploads/images/accueil/acceuil-principal.JPG' %}
+
+{% if app.request.pathinfo == '/' %}
+	{% set encartText = "Accueil" %}
+	{% set pathImg = '/uploads/images/accueil/acceuil-principal.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/carte' %}
+	{% set encartText = "Carte & Menu" %}
+	{% set pathImg = '/uploads/images/carte/menu-carte.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/mon-panier' %}
+	{% set encartText = "Cave à vins" %}
+	{% set pathImg = '/uploads/images/carte/menu-carte.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/contact' %}
+	{% set encartText = "Contact" %}
+	{% set pathImg = '/uploads/images/contact/contact-slide1.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/cgu' %}
+	{% set encartText = "Conditions Générales de Ventes" %}
+	{% set pathImg = '/uploads/images/accueil/accueil-ligne2-2.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/mentions-legales' %}
+	{% set encartText = "Mentions légales" %}
+	{% set pathImg = '/uploads/images/accueil/accueil-ligne2-3.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/connexion' %}
+	{% set encartText = "Connexion" %}
+	{% set pathImg = '/uploads/images/accueil/accueil-ligne2-3.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/inscription' %}
+	{% set encartText = "Inscription" %}
+	{% set pathImg = '/uploads/images/accueil/accueil-ligne2-3.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/compte' %}
+	{% set encartText = "Mon compte" %}
+	{% set pathImg = '/uploads/images/accueil/accueil-ligne2-3.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/compte/modifier-mot-de-passe' %}
+	{% set encartText = "Modification de mdp" %}
+	{% set pathImg = '/uploads/images/accueil/accueil-ligne2-3.JPG' %}
+{% endif %}
+
+<img src='{{ pathImg }}' alt='{{ encartText }}' class="image"/>
+<div class="menu-encart-cadre">
+	<h1 class="menu-encart-texte">{{ encartText }}</h1>
+</div>

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact
+{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('CSS_bootstrap') }}
+	{{ parent() }}
+	{{ encore_entry_link_tags('contact') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('CSS_bootstrap') }}
+	{{ parent() }}
+	{{ encore_entry_script_tags('contact') }}
+{% endblock %}
+
+{% block body %}
+	<form class="container contact-form mb-5" id="myForm" method="post">
+		<div class="mt-5">
+			<h2>Vous désirez nous contacter?<br>Remplissez le formulaire ci-dessous!</h2>
+		</div>
+		
+			<div class="row mt-5">
+				<div class="col-4">
+					<label for="idName" class="form-label">Nom</label>
+					<input type="text" class="form-control" id="idName" maxlength="50" required>
+				</div>
+				<div class="col-4">
+					<label for="idFirstName" class="form-label">Prénom</label>
+					<input type="text" class="form-control" id="idFirstName" maxlength="50" required>
+				</div>
+				<div class="col-4">
+					<label for="idEntreprise" class="form-label">Entreprise</label>
+					<input type="text" class="form-control" id="idEntreprise" maxlength="50">
+				</div>
+				<div class="col-4 mt-4">
+					<label for="idPhone" class="form-label">Téléphone</label>
+					<input type="tel" class="form-control" id="idPhone" maxlength="12" required>
+				</div>
+				<div class="col-12 mt-4">
+					<label for="idMail" class="form-label">Email</label>
+					<input type="email" class="form-control" id="idMail" maxlength="50" required>
+				</div>
+				<div class="mt-5">
+					<label for="textarea">Message:</label>
+					<textarea class="form-control" placeholder="Merci d'écrire votre message ici..." id="textarea" style="height: 100px" required></textarea>
+				</div>
+				<div class="family-buttons mt-4 d-flex justify-content-between">
+					<button type="reset" class="btn btn-light clear-button">Effacer</button>
+					<button type="submit" class="btn btn-light send-button">Envoyer</button>
+				</div>
+			</div>
+		
+	</form>
+
+{% endblock %}

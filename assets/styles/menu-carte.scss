@@ -1,0 +1,259 @@
+/* Partie 2: Style des colonnes menus & cartes */
+/* Styles du conteneur du menu */
+.menu-container-cadre {
+  margin-top: 10%;
+  overflow: hidden;
+  /* height: 1000px; */
+  padding-left: 2%;
+  padding-right: 2%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Styles de la colonne de gauche */
+.menu-colonne-gauche {
+  width: 70%; /* Définir une largeur de 70% par rapport à l'élément parent */
+  height: auto;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #735e5d;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+
+.bordered-content {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+/* Styles de la colonne de droite */
+.menu-colonne-droite {
+  width: 25%; /* Définir une largeur de 25% par rapport à l'élément parent */
+  border-radius: 10px;
+  color: white;
+  box-sizing: border-box;
+  margin-left: 5%;
+  background-color: #d0cdc2;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* Partie 3: Style pour le contenu de la colonne de gauche */
+h2 {
+  font-weight: 700;
+  font-size: 2.5vw;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 2vw;
+  font-style: italic;
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 1.5vw;
+  font-style: italic;
+}
+
+.menu-gauche-donnees {
+  font-size: 1.6vw;
+}
+
+hr {
+  width: 70%;
+  color: white;
+}
+
+/* Partie 4: Style pour le contenu de la colonne de droite */
+/* Style de la barre de naviagation pour le menu */
+.navbar {
+  padding: 0;
+  margin: 0;
+  font-size: 0.6rem;
+}
+
+.navbar > li {
+  position: relative;
+}
+
+.navbar > li > a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #000;
+  /* Ajout: Ajoute une transition pour une animation fluide */
+  transition: background-color 0.3s ease;
+}
+
+.menu-navigation {
+  position: relative;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 23.5%;
+  border-radius: 10px;
+  color: white;
+  box-sizing: border-box;
+  background-color: #d0cdc2;
+}
+
+.dropdown-menu {
+  display: none; /* Masque le menu déroulant par défaut */
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar > li:hover > a {
+  background-color: rgba(255, 255, 255, 0.5);
+  // background-color: rgba(255, 0, 255, 0.5);
+  text-align: center; /* Ajout: Centre le texte des titres d'onglet au survol */
+}
+
+.navbar > li:hover .dropdown-menu {
+  display: block; /* Affiche le menu déroulant au survol de l'élément du menu */
+}
+
+.navbar > li:hover .dropdown-menu > li > a {
+  padding-left: 20px;
+  text-align: left; /* Ajout: Centre le texte des titres d'onglet dans les menus déroulants */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block; /* Affiche le menu déroulant au survol de l'élément du menu */
+}
+
+.dropdown-menu > li > a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #000;
+  text-align: center; /* Ajout: Centre le texte des titres d'onglet */
+}
+
+.dropdown-menu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 10px;
+}
+
+.dropdown-menu .dropdown-menu > li {
+  position: relative;
+}
+
+.dropdown-menu .dropdown-menu:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -10px;
+  border: 10px solid transparent;
+  border-right-color: #fff;
+}
+
+.dropdown-menu .dropdown-menu > li > a {
+  padding-left: 20px;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown:hover .dropdown-menu > .dropdown-menu {
+  display: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* Style flèche de retour */
+.scroll-to-top {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  display: none;
+  width: 20px;
+  height: 20px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.scroll-to-top img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+}
+
+.scroll-to-top.show {
+  display: block;
+}
+
+/* Partie 5: Style supplémentaire */
+/* Media query pour les écrans de petite taille */
+@media (max-width: 768px) {
+  .menu-colonne-gauche {
+    width: 100%;
+  }
+
+  .menu-colonne-droite {
+    width: 100%;
+    order: -1;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 94%;
+    border-radius: 10px;
+    color: white;
+    box-sizing: border-box;
+    background-color: #d0cdc2;
+  }
+
+  .navbar {
+    display: flex; /* Ajout: Affiche les éléments de la navbar en tant que flexbox */
+    flex-wrap: wrap; /* Ajout: Permet le retour à la ligne des éléments lorsque l'espace est insuffisant */
+    justify-content: space-between; /* Ajout: Aligne les éléments de la navbar sur toute la largeur */
+  }
+}
+
+.block-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: inherit 20px;
+  min-width: 20px;
+  width: 100%;
+  min-height: 20px;
+  color: #212121;
+}
+
+.btn-block-list {
+  font: inherit;
+  box-shadow: inset 0 0 0 1px #212121;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  margin: 10px;
+  margin-right : 10px;
+  margin-left : 0;
+  cursor : pointer;
+}
+.btn-block-list:hover {
+  cursor : pointer;
+}
+
+.btn:hover {
+  background-color: #735e5d;
+  transition: background-color 100ms ease;
+}

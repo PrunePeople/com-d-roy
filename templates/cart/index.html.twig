@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('panier') }}
+	{{ encore_entry_link_tags('menu-carte') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('panier') }}
+	{{ encore_entry_link_tags('menu-carte') }}
+{% endblock %}
+
+
+{% set total = 0 %}
+{% set total_quantity = 0 %}
+
+{% block title %}Mon panier - Com D Roy
+{% endblock %}
+
+{% block body %}
+	<div
+		class='menu-container-cadre'>
+
+		{# AFFICHAGE DES BOISSONS #}
+
+		<div class="menu-colonne-gauche">
+			<div class=" bordered-content">
+				{% for boisson in boissons %}
+					<div class="menu-gauche-donnees">
+						<a href="{{ path('add_to_cart' , {id : boisson.id }) }}" class="panier-boisson-link">
+							{{ boisson | dots }}
+						</a>
+						{# <a href="{{ path('add_to_cart' , {id : boisson.id }) }}" class="panier-boisson-link ms-5">
+							<img src="{{ asset('assets/add.png') }}" height="18px" alt="ajouter un produit">
+						</a> #}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		{# AFFICHAGE DU PANIER #}
+
+		<div class="menu-colonne-droite">
+		
+			<div class="menu-navigation " {# TODO RAJOUTER STYCKY ICI #}> 
+				<h1>Mon panier</h1>
+				<p>Retrouver l'ensemble de vos produits</p>
+				{% if cart | length %}
+                <ul class="menu-navbar">
+					<table  class="table mt-3 me-1">
+						<thead class="color-primary">
+							<tr>
+								<th scope="col">Produit</th>
+								<th scope="col"></th>
+								<th scope="col">Quantité</th>
+								<th scope="col">Prix</th>
+								<th scope="col">Total</th>
+							</tr>
+						</thead>
+						<tbody class="color-secondary">
+							{% set total = null %}
+							{% for item in cart %}
+								<tr>
+								{% if item.item.picture %}
+									<th>
+										<img src="/uploads/{{ item.item.picture }}" alt="{{ item.item.name }}" height="55px"><br/>
+									</th>
+									{% endif %}
+									<td>{{ item.item.name }}<br/>
+										<small>{{ item.item.description }}</small>
+									</td>
+									<td>
+										<a href="{{ path('decrease_to_cart', {id : item.item.id }) }}">
+											<img src="{{ asset('assets/minus.png') }}" height="18px" alt="supprimer un produit">
+										</a>
+										x
+										{{ item.quantity }}
+										<a href="{{ path('add_to_cart' , {id : item.item.id }) }}">
+											<img src="{{ asset('assets/add.png') }}" height="18px" alt="ajouter un produit">
+										</a>
+									</td>
+									<td>{{ item.item.price }}
+										€
+									</td>
+									<td>{{ ((item.item.price * item.quantity )) }}
+										€
+									</td>
+									<td>
+										<a href="{{ path('delete_to_cart', {id : item.item.id }) }}">
+											<img src="{{ asset('assets/trash.png') }}" height="18px" alt="supprimer mon produit">
+										</a>
+									</td>
+								</tr>
+								{% set total = total + (item.item.price * item.quantity ) %}
+								{% set total_quantity = total_quantity + item.quantity %}
+							{% endfor %}
+						</tbody>
+
+					</table>
+					<div class="text-right">
+						<b class="">Nombre de produits :
+							{{ total_quantity }}
+						</b>
+						<br/>
+						<b class="">Total de mon panier :
+							{{ ( total) }}
+							€</b><br/>
+
+						<a href="" class="btn color-tertiary mt-4 text-white">Valider mon panier</a>
+					</div>
+				{% else %}
+					<hr>
+					<b class="">Votre panier est vide</b>
+				{% endif %}
+			</ul></div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lora", serif !important;
+}
+
+/* Partie 1: Header */
+/* Styles du header */
+header {
+  position: relative;
+}
+
+.header__accueil-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Styles de l'encart du menu */
+.header__accueil-cadre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  padding: 2%;
+  border: 2px solid #d0cdc2;
+  background-color: white;
+  overflow: hidden; /* Masquer le contenu débordant */
+  width: calc(
+    80vw - 20px
+  ); /* Définir une largeur en fonction de la largeur de la fenêtre moins les marges */
+  max-width: 400px; /* Définir une largeur maximale pour l'encart */
+}
+
+/* Style du texte dans l'encart */
+.header__accueil-texte {
+  font-size: calc(
+    2vw + 10%
+  ); /* Définir une taille de police en fonction de la largeur de la fenêtre */
+  text-align: center;
+  white-space: nowrap; /* Empêcher le texte de passer à la ligne */
+  text-overflow: ellipsis; /* Afficher les points de suspension (...) si le texte dépasse */
+}
+
+/* Partie 2: Textes et images de présentation */
+/* Texte principal */
+.accueil__titre {
+  text-align: center;
+  margin: 5% 2% 5% 2%;
+  padding: 0% 20% 0% 20%;
+}
+
+.accueil__titre, p {
+  padding-top: 1%;
+}
+
+.accueil__titre2 {
+  text-align: center;
+  margin: 10% 5% 2% 5%;
+  padding: 0% 10% 0% 10%;
+}
+
+/* Appliquer une marge de 2% aux div et colonnes */
+.row,
+.accueil__colonne,
+.accueil__grid-item,
+.accueil__bandeau {
+  margin: 2%;
+}
+
+/* Centrer le texte dans la div de présentation et les paragraphes */
+.row .accueil__colonne,
+.accueil__bandeau p {
+  text-align: center;
+}
+
+/* Appliquer un fond coloré aux différentes grilles */
+.accueil__grid-container .grid1,
+.accueil__grid-container .grid4 {
+  background-color: #d0cdc2;
+  border-radius: 10px;
+  padding: 10%;
+  text-align: center;
+  font-size: 1rem;
+  margin: 5% 10% 5% 10%;
+}
+
+.accueil__grid-container .grid3 > img,
+.accueil__grid-container .grid2 > img {
+  border-radius: 10px;
+  /* opacity: 0;
+  transition: opacity 1s; */
+  max-width: 75%;
+  max-height: 75%;
+  margin-left: 10%;
+}
+
+.accueil__grid-container .grid4 {
+  background-color: #d0cdc2;
+  border-radius: 10px;
+  padding: 10%;
+  text-align: center;
+  font-size: 1rem;
+  margin: 5% 10% 5% 10%;
+}
+
+/* Partie 3: Galerie */
+.row {
+  display: flex;
+}
+
+.slider img.active {
+  opacity: 1;
+}
+
+/* Appliquer un espacement entre les colonnes */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Partie 4: Bandeau */
+/* Appliquer une largeur de 100% à la bannière */
+.accueil__bandeau {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #a9b19d;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.accueil__bandeau .accueil__colonne-bandeau {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 20px;
+  text-align: center;
+  color: black;
+}
+
+.accueil__colonne-bandeau {
+  flex-basis: calc(50% - 6%); /* Répartit les colonnes sur 2 colonnes à égales distances */
+  padding: 20px;
+  text-align: center;
+  color: black;
+}
+
+.accueil__colonne-bandeau-icone {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.accueil__colonne {
+  float: left;
+  width: calc(33.33% - 6%);
+  margin: 10% 5% 10% 5%;
+}
+
+.accueil__colonne > img {
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+/* Partie 5: Encart map */
+.accueil__map-adresse {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4%;
+  margin-top: 80px;
+}
+
+.accueil__map {
+  width: 40%;
+}
+
+.accueil__map-adresse {
+  margin-top: 80px;
+}
+
+.accueil__map > iframe {
+  width: 100%;
+}
+
+.accueil__adresse {
+  display: flex;
+  border: 2px solid #d0cdc2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: auto;
+  color: black;
+  box-sizing: border-box; /* Ajout de la propriété box-sizing */
+  padding: 2% 0% 2% 0%;
+}
+
+.accueil__adresse-icons {
+  flex-flow: row nowrap;
+  width: 30%;
+}
+
+.accueil__adresse-icons > a {
+  text-decoration: none;
+  color: #5e7fc7;
+}
+
+.accueil__adresse-icons-tripadvisor.tripadvisor-icon {
+  height: auto; /* Ajustement de la hauteur à "auto" */
+  max-height: 50px; /* Ajout d'une hauteur maximale pour éviter un agrandissement excessif */
+}
+
+.accueil__grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2%;
+  justify-content: center; 
+  align-items: center; 
+} 
+
+/* Appliquer une grille responsive avec 2 colonnes par ligne */
+@media screen and (max-width: 768px) {
+  .accueil__colonne {
+    width: 100%;
+  }
+  .accueil__grid-container {
+    grid-template-columns: 1fr;
+  }
+  .accueil__colonne-bandeau {
+    flex-basis: calc(33.33% - 6%); /* Répartit les colonnes sur 3 colonnes à égales distances */
+  }
+}
+
+/* Appliquer une grille responsive avec 1 colonne par ligne */
+@media screen and (max-width: 480px) {
+  .accueil__grid-item,
+  .accueil__colonne {
+    width: 100%;
+  }
+  .accueil__grid-container {
+    grid-template-columns: 1fr;
+  }
+  .accueil__colonne-bandeau {
+    flex-basis: 100%; /* Chaque colonne occupe toute la largeur */
+  }
+}

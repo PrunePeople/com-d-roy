@@ -1,0 +1,45 @@
+// body {
+//     font-family: Arial, sans-serif;
+//     line-height: 1.5;
+//     margin: 20px;
+//     padding: 5%;
+//   }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    color: #735e5d;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  div[ng-bind-html] {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  div[ng-bind-html] a {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  div[ng-bind-html] a:hover {
+    color: #735e5d;
+  }
+  

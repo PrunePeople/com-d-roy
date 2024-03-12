@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4">
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="mb-3">
+                        - <a href="/admin">Accéder à l'espace administrateur</a><br/>
+                    </div>
+                {% endif %}
+
+                <div class="mb-3">
+                    Bienvenue, {{ app.user.firstname }} !<br>
+                    Email : {{ app.user.email }}
+                </div>
+
+                <div class="mb-3">
+                    <a href="{{ path('app_account_password') }}" class="btn btn-primary">Modifier mon mot de passe</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

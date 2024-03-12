@@ -1,0 +1,511 @@
+/* ------------------------------------- */
+/* FICHIER CSS COMMUN A TOUTES LES PAGES */
+/* CONTIENT------------------------------*/
+/* ---------LES VARIABLES--------------- */
+/* ---------L'IMPORT BOOTSTRAP-----------*/  /* MIS EN PAUSE PAR DEFAULT 13/06 => './CSS_bootstrap.scss' */
+/* ---------L'IMPORT GOOGLEFONT----------*/
+/* ---------LES STYLES DU HEADER-------- */
+/* ---------LES STYLES DU NAVBAR-------- */
+/* ---------LES STYLES DU FOOTER-------- */
+/* ------------------------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+
+  --primary : #8a3d2e;
+  --secondary : #d0cdc2;
+  --tertiary : #f2f2f2;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+body {
+  font-family: "Lora", serif;
+}
+
+/* Partie 1: Header */
+/* Styles du header */
+header {
+  position: relative;
+}
+a {
+  text-decoration: none !important;
+  appearance: none !important;
+  color: initial !important;
+}
+.image {
+  display: block;
+  width: 100%;
+  height: 300px; // à remodifier
+}
+
+
+
+/* Styles de l'encart du menu */
+.menu-encart-cadre {
+  position: relative;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  padding: 2% 5% 2% 5%;
+  border: 2px solid #d0cdc2;
+  background-color: white;
+  overflow: hidden; /* Masquer le contenu débordant */
+  width: calc(
+    80vw - 20px
+  ); /* Définir une largeur en fonction de la largeur de la fenêtre moins les marges */
+  max-width: 500px; /* Définir une largeur maximale pour l'encart */
+
+  margin : 10px;
+  margin-top : -40px;
+}
+
+/* Style du texte dans l'encart */
+.menu-encart-texte {
+  font-size: calc(
+    2vw + 50%
+  ); /* Définir une taille de police en fonction de la largeur de la fenêtre */
+  text-align: center;
+  white-space: nowrap; /* Empêcher le texte de passer à la ligne */
+  text-overflow: ellipsis; /* Afficher les points de suspension (...) si le texte dépasse */
+}
+
+
+/* ******************************/
+/* ******************************/
+/* ************* NAVBAR *********/
+/* ******************************/
+/* ******************************/
+
+
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lora", serif !important;
+}
+
+.navbar--with-header .dropdown__menu_burger {
+  margin-left: 0; /* Réinitialise la marge gauche */
+}
+
+/* Barre de navigation principale */
+.navbar {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+/* Conteneur des icônes de la barre de navigation */
+.navbar__icones {
+  display: flex;
+  flex-direction: row;
+  width: 340px;
+  margin-right: 2%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Conteneur du menu burger (pour les appareils mobiles) */
+.dropdown__menu_burger {
+  margin-left: 5%;
+  height: 100%;
+}
+
+/* Menu burger */
+.navbar__menu_burger {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Traits du menu burger */
+.navbar__menu_burger > span {
+  height: 4px;
+  background-color: black;
+  width: 40px;
+  display: block;
+  margin-bottom: 8px;
+  border-radius: 5px;
+}
+
+/* Logo de la barre de navigation */
+.navbar__logo_img {
+  display: block;
+  max-height: 70px;
+}
+
+/* Conteneur des drapeaux de langue */
+.navbar__icones_languages {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 5px;
+  height: 100px;
+}
+
+/* Traits séparateurs des drapeaux de langue */
+.navbar__icones_languages > span {
+  background-color: black;
+  border-radius: 2px;
+  height: 30px;
+  width: 2px;
+  margin-left: 9px;
+  margin-right: 9px;
+}
+
+/* Icônes des drapeaux de langue */
+.navbar__icones_languages > img {
+  height: 15px;
+  border-radius: 2px;
+  border: 2px solid black;
+}
+
+/* Icône de connexion */
+.navbar__icones_connexion {
+  margin-right: 10px;
+}
+
+/* Lien de l'icône */
+.navbar__icone_link {
+  background: none;
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Animation au survol de l'icône */
+.navbar__icone_link:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+/* Taille des icônes */
+.navbar__icones i {
+  font-size: 1.5rem;
+}
+
+/* Animation du menu burger au survol */
+.navbar__menu_burger:hover > .navbar__menu_burger_topBar {
+  transform: rotate(45deg) translateY(12px);
+  transition: 0.5s;
+}
+
+/* Animation du menu burger au survol */
+.navbar__menu_burger:hover > .navbar__menu_burger_bottomBar {
+  transform: rotate(135deg) translateY(12px);
+  transition: 0.5s;
+}
+
+/* Animation du menu burger au survol */
+.navbar__menu_burger:hover > .navbar__menu_burger_middleBar {
+  display: none;
+}
+
+/* Options du menu déroulant des langues */
+.dropdown__language-option {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  width: 90px;
+  font-weight: 600;
+  opacity: 80%;
+}
+
+/* Liens des options du menu déroulant des langues */
+.dropdown__language-option a {
+  text-decoration: none;
+  color: white;
+  padding: 4px;
+  width: 100%;
+}
+
+/* Animation au survol des liens du menu déroulant des langues */
+.dropdown__language-option a:hover {
+  background-color: darkgrey;
+}
+
+/* Traits séparateurs du menu déroulant des langues */
+.dropdown__language-option span {
+  background-color: white;
+  height: 2px;
+  width: 90%;
+}
+
+/* Options du menu déroulant du menu burger */
+.dropdown__menu_burger-choises {
+  display: flex;
+  position: absolute;
+  z-index: -1;
+  top: -50px;
+  width: 100%;
+  left: 0px;
+  flex-direction: row nowrap;
+  justify-content: space-between;
+  opacity: 80%;
+  background-color: gray;
+}
+
+/* Liens des options du menu déroulant du menu burger */
+.dropdown__menu_burger-choises > a {
+  display: flex;
+  width: 20%;
+  justify-content: center;
+}
+
+/* Style de l'élément actif */
+.active {
+  top: 100px;
+  transition: 0.4s ease-in-out;
+  background-color: white;
+}
+
+/* Liens du menu déroulant du menu burger */
+.dropdown__menu_burger-choises a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+
+/* Liens du menu burger */
+.dropdown__menu_burger > a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Animation au survol des liens du menu déroulant du menu burger */
+.dropdown__menu_burger-choises > a:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+  background-color: #d0cdc2;
+}
+
+/* Affichage */
+.show {
+  display: flex;
+}
+
+/*--------------------*/
+/*- media query part -*/
+/*--------------------*/
+
+@media (max-width: 992px) {
+  .navbar__icones {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar__icones {
+    width: 25%;
+  }
+
+  .navbar__icones_reservation,
+  .navbar__icones_gift,
+  .navbar__icones_cart {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar__icones {
+    width: 35%;
+  }
+
+  .navbar__icones_reservation,
+  .navbar__icones_gift,
+  .navbar__icones_cart {
+    display: none;
+  }
+}
+
+/* FOOTER */
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Styles généraux */
+body {
+  font-family: "Lora", serif;
+}
+
+/* Partie 1: Style du contenant */
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  font-size: 0.8rem;
+  color: white;
+}
+
+/* Barre supérieure du footer */
+.footer-topBar {
+  position: absolute; /* Modification : Utiliser position absolue */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #b34b4b;
+  height: 10%;
+}
+
+/* Barre inférieure du footer */
+.footer-bottomBar {
+  background-color: #735e5d;
+  top: 25%;
+  bottom: 0;
+  width: 100%;
+  min-height: 75%; /* Définit la hauteur minimale du footer */
+  padding-top: 8%;
+}
+
+/* Conteneur supérieur */
+.conteneurHaut {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Permet aux colonnes de passer à la ligne */
+}
+
+/* Partie 2: Style du contenu */
+
+h3 {
+  font-size: 1rem;
+}
+
+/* Colonne de contact */
+.colonneContact {
+  flex: 1;
+  text-align: center;
+}
+
+.colonneContact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.colonneContact ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.colonneContact li i {
+  margin-right: 5px; /* Espacement entre l'icône et le texte */
+}
+
+.colonneContact p i {
+  margin-right: 5px;
+}
+
+/* Colonne des horaires */
+.colonneHoraires {
+  flex: 1;
+  text-align: center;
+}
+
+/* Colonne des newsletters */
+.colonneNewsletters {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.colonneNewsletters input[type="email"] {
+  width: 60%;
+  height: 8%;
+}
+
+.colonneNewsletters input[type="email"]::placeholder {
+  font-size: 0.8rem;
+}
+
+.colonneNewsletters button[type="submit"] {
+  font-size: 0.5rem;
+  width: 30%;
+  margin-left: 35%;
+}
+
+/* Colonne des avis */
+.colonneAvis {
+  flex: 1;
+  text-align: center;
+}
+
+/* Conteneur du milieu */
+.conteneurMilieu {
+  text-align: center;
+}
+
+.liensFooter {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+}
+
+.liensFooter li {
+  display: inline-block;
+  margin: 0 10px;
+
+}
+
+.footer-link {
+  text-decoration: underline !important;
+  color : blanchedalmond !important;
+}
+
+/* Conteneur du bas */
+.conteneurBas {
+  text-align: center;
+  color: #fff;
+}
+
+/* Media queries pour rendre le footer responsive */
+@media (max-width: 768px) {
+  .conteneurHaut {
+    flex-direction: column; /* Met les colonnes l'une au-dessus de l'autre */
+  }
+
+  .colonneContact,
+  .colonneHoraires,
+  .colonneNewsletters,
+  .colonneAvis {
+    flex: 1;
+    width: 100%;
+  }
+
+  .colonneNewsletters input[type="email"] {
+    width: 40%;
+  }
+
+  .colonneNewsletters button[type="submit"] {
+    font-size: 0.5rem;
+    width: 15%;
+    margin-left: 25%;
+  }
+}

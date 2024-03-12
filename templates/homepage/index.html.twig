@@ -1,0 +1,210 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('accueil') }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('accueil') }}
+{% endblock %}
+
+{% block title %}
+Accueil
+{% endblock %}
+
+{% block body %}
+	<div class="accueil__titre">
+		<h2>Bienvenue à Com d Roy, où vous serez servis comme des rois!</h2>
+		<p>
+			Que vous disposiez de trente minutes ou de deux heures, peu importe.
+			        Passez les portes de notre restaurant et laissez-nous vous offrir une
+			        expérience qui vous donnera envie de revenir, que ce soit pour un court
+			        instant ou une soirée entière.
+		</p>
+	</div>
+
+	<div class="accueil__grid-container">
+		<div class="accueil__grid-item grid1">
+			<p>
+				Que vous disposiez de trente minutes ou de deux heures, peu importe.
+				          Passez les portes de notre restaurant et laissez-nous vous offrir une
+				          expérience qui vous donnera envie de revenir, que ce soit pour un
+				          court instant ou une soirée entière.
+			</p>
+		</div>
+		<div class="accueil__grid-item grid2 slider">
+			<img
+			src="{{ asset('uploads/images/accueil/accueil-ligne1-1.jpg') }}" alt="intérieur du restaurant" class="imgSlider-5 active"/>
+		<!-- <img
+		          src="../src/images/accueil-ligne1-2.JPG"
+		          alt="intérieur du restaurant"
+		          class="imgSlider-5"
+		        />
+		        <img
+		          src="../src/images/accueil-ligne1-3.JPG"
+		          alt="intérieur du restaurant"
+		          class="imgSlider-5"
+		        /> -->
+		</div>
+		<div class="accueil__grid-item grid3 slider">
+			<img
+			src="{{ asset('uploads/images/accueil/accueil-ligne2-1.JPG') }}" alt="extérieur restaurant" class="imgSlider-4 active"/>
+		<!-- <img
+		          src="../src/images/accueil-ligne2-2.JPG"
+		          alt="extérieur restaurant"
+		          class="imgSlider-4"
+		        />
+		        <img
+		          src="../src/images/accueil-ligne2-3.JPG"
+		          alt="extérieur restaurant"
+		          class="imgSlider-4"
+		        /> -->
+		</div>
+		<div class="accueil__grid-item grid4">
+			<p class="underline ...">
+				En après-midi, profitez du soleil ou de l'ombre de nos chênes et
+				          dégustez un cocktail de fruits rafraîchissant, l'une de nos bières
+				          spéciales ou un verre de rosé bien frais. Vous pouvez également venir
+				          savourer une glace artisanale préparée par notre maître glacier.
+			</p>
+		</div>
+	</div>
+
+	<div class="accueil__titre2">
+		<p>
+			Nous vous invitons à découvrir une cuisine traditionnelle et généreuse,
+			        dans une ambiance décontractée. Que ce soit pour le déjeuner ou le
+			        dîner, à la carte ou en formule, nous proposons une sélection de plats
+			        et de desserts faits maison, confectionnés avec soin.
+			<br/><br/>
+			N'hésitez pas à nous rendre visite et laissez notre équipe dévouée
+			<br/>
+			faire en sorte que votre temps passé chez nous soit une expérience
+			        mémorable.
+		</p>
+	</div>
+
+	<div class="row">
+		<div class="accueil__colonne slider">
+			<img 
+			src="{{ asset('uploads/images/accueil/accueil-slide1.JPG') }}" alt="" class="imgSlider-1 active"/>
+		<!-- <img
+		          src="../src/images/accueil-slide2.JPG"
+		          alt=""
+		          class="imgSlider-1"
+		        />
+		        <img
+		          src="../src/images/accueil-slide3.JPG"
+		          alt=""
+		          class="imgSlider-1"
+		        /> -->
+		</div>
+		<div class="accueil__colonne slider">
+			<img
+			src="{{ asset('uploads/images/accueil/accueil-slide4.JPG') }}" alt="" class="imgSlider-2 active"/>
+		<!-- <img
+		          src="../src/images/accueil-slide5.JPG"
+		          alt=""
+		          class="imgSlider-2"
+		        />
+		        <img
+		          src="../src/images/accueil-slide6.JPG"
+		          alt=""
+		          class="imgSlider-2"
+		        /> -->
+		</div>
+		<div class="accueil__colonne slider">
+			<img
+			src="{{ asset('uploads/images/accueil/accueil-slide7.JPG') }}" alt="" class="imgSlider-3 active"/>
+		<!-- <img
+		          src="../src/images/accueil-slide8.JPG"
+		          alt=""
+		          class="imgSlider-3"
+		        />
+		        <img
+		          src="../src/images/accueil-slide9.JPG"
+		          alt=""
+		          class="imgSlider-3"
+		        /> -->
+		</div>
+	</div>
+
+	<div class="accueil__bandeau">
+		<div class="accueil__colonne-bandeau">
+			<div class="accueil__colonne-bandeau-icone">
+				<i class="fa-solid fa-square-parking fa-2x"></i>
+			</div>
+			<h3>Parking gratuit</h3>
+			<p>(voiture, moto, vélo)</p>
+		</div>
+		<div class="accueil__colonne-bandeau">
+			<div class="icone">
+				<i class="fa-solid fa-bicycle fa-2x"></i>
+			</div>
+			<h3>Accès piste cyclable</h3>
+			<p></p>
+		</div>
+		<div class="accueil__colonne-bandeau">
+			<div class="icone">
+				<i class="fas fa-paw fa-2x"></i>
+			</div>
+			<h3>Animaux acceptés</h3>
+			<p>Et une gamelle d'eau fraîche sera apportée</p>
+		</div>
+		<div class="accueil__colonne-bandeau">
+			<div class="icone">
+				<i class="fa-solid fa-hand-holding-heart fa-2x"></i>
+			</div>
+			<h3>Fait maison</h3>
+			<p>Avec des produits frais et locaux</p>
+		</div>
+		<div class="accueil__colonne-bandeau">
+			<div class="icone">
+				<i class="fa-solid fa-umbrella-beach fa-2x"></i>
+			</div>
+			<h3>Terasse extérieure ombragée</h3>
+			<p></p>
+		</div>
+		<div class="accueil__colonne-bandeau">
+			<div class="icone">
+				<i class="fa-solid fa-ice-cream fa-2x"></i>
+			</div>
+			<h3>Pause rafraîchissante</h3>
+			<p>Avec une petite boisson ou une glace artisanale</p>
+		</div>
+	</div>
+
+	<div class="accueil__map-adresse">
+		<div class="accueil__map">
+			<iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=325&amp;hl=fr&amp;q=+(com%20d%20roy)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="40%" height="325" frameborder="0"></iframe>
+		</div>
+
+		<div class="accueil__adresse">
+			<h2>Com d Roy</h2>
+			<br/>
+			<p>288 Boulevard de la République</p>
+			<p>33510 Andernos-les-Bains</p>
+			<br/>
+			<a href="mailto:com.d.roy@orange.fr" style="text-decoration: none">
+				<i class="fa-solid fa-envelope fa-lg" style="color: black"></i>
+				<span style="color: black; font-weight: normal">com.d.roy@orange.fr</span>
+			</a>
+			<br/>
+			<a href="tel:0556820423" style="text-decoration: none">
+				<i class="fa-solid fa-phone-alt fa-lg" style="color: black"></i>
+				<span style="color: black; font-weight: normal">05 56 82 04 23</span>
+			</a>
+			<br/>
+			<div class="accueil__adresse-icons">
+				<a href="https://fr-fr.facebook.com/ComDRoy/" target="_blank">
+					<i class="fa-brands fa-facebook-f fa-3x" style="color: black"></i>
+				</a>
+				<a href="https://www.tripadvisor.fr/Restaurant_Review-g1079322-d10367122-Reviews-Com_D_Roy-Andernos_les_Bains_Gironde_Nouvelle_Aquitaine.html" target="_blank">
+					<img src="{{ asset('uploads/images/tripadvisor-logo-circle-green-vertical-lockup-registered-rgb.svg') }}" class="accueil__adresse-icons-tripadvisor tripadvisor-icon" alt=""/>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

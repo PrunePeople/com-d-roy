@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carte
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('menu-carte') }}}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('menu-carte') }}
+{% endblock %}
+
+
+{% block body %}
+	<div class="menu-container-cadre">
+		<div class="menu-colonne-gauche">
+			<div class="bordered-content">
+				{% for key, items in products %}
+					<h4 class='my-5' id="{{ key | lower }}">{{ key }}</h4>
+					{# LIMITATION AFFICHAGE 10 PRODUITS #}
+					{% for item in items | slice(0,10) %}
+						<div
+							class="menu-gauche-donnees">
+							{# EXTENSION TWIG #}
+							{{ item | dots }}
+							€
+						</div>
+					{% endfor %}
+				{% endfor %}
+			</div>
+		</div>
+		<div class="menu-colonne-droite">
+			<nav class="menu-navigation sticky">
+				<ul class="menu-navbar">
+					<li class="dropdown">
+						<a href="#aLaCarte">A la Carte</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#entrée">Entrées</a>
+							</li>
+							<li>
+								<a href="#plat">Plats</a>
+							</li>
+							<li>
+								<a href="#dessert">Desserts</a>
+							</li>
+							<li>
+								<a href="#suggestion">Nos Suggestions</a>
+							</li>
+							<li>
+								<a href="#glace">Glaces</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#incontournable">Les Incontournables</a>
+									</li>
+									<li>
+										<a href="#inattendue">Les Inattendues</a>
+									</li>
+									<li>
+										<a href="#interdite">Les Interdites</a>
+									</li>
+									<li>
+										<a href="#sorbet">Les Sorbet</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#boisson">Nos Boissons</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="{{ url('cart') }}">Découvrez notre cave à vin !
+									<ul class="dropdown-menu block-list">
+										<li>
+											<button class="btn-block-list">
+												Cave à vins
+											</button>
+										</li>
+
+
+									</ul>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<a href="#" class="scroll-to-top"><img src="{{ asset('uploads/images/arrow-up-solid.svg') }}" alt="Flèche vers le haut"/></a>
+{% endblock %}

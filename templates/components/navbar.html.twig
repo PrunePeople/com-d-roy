@@ -1,0 +1,143 @@
+<nav class="navbar">
+	<div class="dropdown__menu_burger">
+		<div class="navbar__menu_burger">
+			<span class="navbar__menu_burger_topBar"></span>
+			<span class="navbar__menu_burger_middleBar"></span>
+			<span class="navbar__menu_burger_bottomBar"></span>
+		</div>
+		<div class="dropdown__menu_burger-choises">
+			<a href="{{ path('app_homepage') }}" class="dropdown__burger-choice">
+				<p>Accueil</p>
+			</a>
+
+			{# RESERVATION REDIRIGE VERS ACCUEIL #}
+{# 
+			<a href="{{ path('app_homepage') }}" class="dropdown__burger-choice">
+				<p>Réservation</p>
+			</a> #}
+			<a href="{{ path('app_carte') }}" class="dropdown__burger-choice">
+				<p>Menu & Carte</p>
+			</a>
+			<a href="{{ path('cart') }}" class="dropdown__burger-choice">
+				<p>Cave à vins</p>
+			</a>
+
+			{# L'Equipe REDIRIGE VERS ACCUEIL #}
+
+			{# <a href="{{ path('app_homepage') }}" class="dropdown__burger-choice">
+				<p>L'Equipe</p>
+			</a> #}
+			{# Informations REDIRIGE VERS ACCUEIL #}
+
+			<a href="{{ path('app_homepage') }}" class="dropdown__burger-choice">
+				<p>Informations</p>
+			</a>
+			<a href="{{ path('app_contact') }}" class="dropdown__burger-choice">
+				<p>Contact</p>
+			</a>
+		</div>
+	</div>
+
+	<a href="{{ path('app_homepage') }}">
+		<div class="navbar__logo">
+			<img class="navbar__logo_img" src="{{ asset('uploads/images/logo.jpg') }}" alt="logo">
+		</div>
+	</a>
+
+	<div class="navbar__icones">
+
+		<div class="navbar__icone_link">
+			<div class="navbar__icones_languages">
+				<img src="{{ asset('uploads/images/frenchflagframed.svg') }}" alt="Français">
+				<span></span>
+				<img src="{{ asset('uploads/images/united-kingdom-flag-icon.svg') }} " alt="English">
+			</div>
+			<div class="dropdown__language-option">
+				<a href="#" class="dropdown__language-linkFR">Français</a>
+				<span></span>
+				<a href="#" class="dropdown__language-linkEN">English</a>
+			</div>
+		</div>
+
+		<a href="{{ path('app_homepage') }}" class="navbar__icone_link">
+			<div class="navbar__icones_reservation">
+				<i class="fa-solid fa-calendar fa-2xl"></i>
+			</div>
+		</a>
+
+        <a href="{{ path('cart') }}" class="navbar__icone_link">
+          <div class="navbar__icones_panier">
+            <i class="fa-solid fa-shopping-cart fa-2xl"></i>
+          </div>
+        </a>
+
+		<a href="#" class="navbar__icone_link">
+			<div class="navbar__icones_gift">
+				<i class="fa-solid fa-gift fa-2xl"></i>
+			</div>
+		</a>
+
+		<a href="{{ path('app_register') }}" class="navbar__icone_link">
+			<div class="navbar__icones_connexion">
+				<i class=""></i>
+			</div>
+		</a>
+
+    {% if app.user %}
+    <!-- Utilisateur connecté : Affiche le nom et le menu déroulant pour le compte et la déconnexion -->
+    <div class="navbar__icone_link" onclick="toggleDropdown()">
+        <i class="fa-solid fa-user fa-2xl"></i>
+         <!-- <span>Mon compte ({{ app.user.firstname }})</span> -->
+        <div id="accountDropdown" class="dropdown__content" style="display: none;">
+            <a href="{{ path('app_account') }}">Profil</a>
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
+        </div>
+    </div>
+    {% else %}
+    <!-- Utilisateur non connecté : Affiche les options de connexion et d'inscription dans une fenêtre modale ou un menu déroulant -->
+    <div class="navbar__icone_link" onclick="openModal()">
+        <i class="fa-regular fa-user fa-2xl"></i>
+    </div>
+    {% endif %}
+
+		<div id="loginRegisterModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <!-- Ici, vous pouvez ajouter votre formulaire de connexion ou des liens vers des pages de connexion/inscription -->
+        <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('app_register') }}">Inscription</a>
+    </div>
+</div>
+	</div>
+
+</nav>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Fonction pour basculer l'affichage du menu déroulant
+    window.toggleDropdown = function() {
+        var dropdown = document.getElementById("accountDropdown");
+        dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+    }
+
+    // Fonction pour ouvrir la fenêtre modale
+    window.openModal = function() {
+        document.getElementById("loginRegisterModal").style.display = "block";
+    }
+
+    // Fonction pour fermer la fenêtre modale
+    window.closeModal = function() {
+        document.getElementById("loginRegisterModal").style.display = "none";
+    }
+
+    // Fermer la fenêtre modale en cliquant en dehors de celle-ci
+    window.onclick = function(event) {
+        var modal = document.getElementById("loginRegisterModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
+</script>
+
+

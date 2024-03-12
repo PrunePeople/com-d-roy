@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('menu-carte') }}
+{% endblock %}
+
+
+{% block title %}Nos produits
+{% endblock %}
+
+{% block body %}
+	<div class="menu-colonne-gauche">
+		<div class="bordered-content">
+			{% for key, items in products %}
+				<h4>{{ key }}</h4>
+				{% for item in items %}
+					<div class="menu-gauche-donnees">
+						<a href="{{ path('app_item_show', { 'slug' : item.slug }) }}">
+							{{ item | dots }}
+							€
+						</a>
+					</div>
+				{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
